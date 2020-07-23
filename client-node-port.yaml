@@ -5,8 +5,15 @@ metadata:
 spec:
   type: NodePort
   ports:
+    # Port to access if accessing from a multi-client pod
     - port: 3050
+      # Identical to the port in the Pod definition; exposed to outside world
       targetPort: 3000
+      #   Port that we are going to access to test out the container inside the pod
+      #   this is what we actually type into the browser
+      #   not required and will be randomly assigned from 30000-32767
       nodePort: 31515
+  # This is tied to the label in the metadata of the client pod
+  # This is the label-selector system
   selector:
     component: web

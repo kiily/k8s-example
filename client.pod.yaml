@@ -4,6 +4,7 @@
 apiVersion: v1
 # Kind --> this represents the type of object that we want to make
 kind: Pod
+# Names the pod, used for logging; labels are tightly coupled to services
 metadata:
   name: client-pod
   labels:
