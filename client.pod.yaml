@@ -1,0 +1,18 @@
+# Scopes the types of objects that we can use - this gives access to specific
+# Objects in the file, apiVersion can also be apps/v1. Should always use the most
+# appropriate api group (refer to docs) for the kind of object we want to use
+apiVersion: v1
+# Kind --> this represents the type of object that we want to make
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web
+# Here we have a Pod that is running a single container that downloads the client
+# image; it also exposes port 3000 to the outside world
+spec:
+  containers:
+    - name: client
+      image: stephengrider/multi-client
+      ports:
+        - containerPort: 3000
