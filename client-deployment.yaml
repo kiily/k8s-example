@@ -5,6 +5,7 @@ metadata:
   name: client-deployment
 spec:
   # Number of pods the deployment is supposed to create
+  # This is used for scaling up
   replicas: 1
   # Selector- similar to the selector in the service config file
   # Deployment reaches out to the master and sends the configuration
