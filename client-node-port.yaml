@@ -1,4 +1,7 @@
 apiVersion: v1
+# The service is key to communicate with ports as they are created and destroyed so that
+# we are always routing to a given pod based on the configuration below and the selector
+# https://www.udemy.com/course/docker-and-kubernetes-the-complete-guide/learn/lecture/11482970#questions/8550754
 kind: Service
 metadata:
   name: client-node-port

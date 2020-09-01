@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+# We create a deployment object type
+kind: Deployment
+metadata:
+  name: client-deployment
+spec:
+  # Number of pods the deployment is supposed to create
+  replicas: 1
+  # Selector- similar to the selector in the service config file
+  # Deployment reaches out to the master and sends the configuration
+  # This is the handle that the deployment gets on the pod after it is
+  # Created by the master
+  selector:
+    matchLabels:
+      component: web
+  # This template section specifies the configuration to be
+  # created for every single pod in this deployment
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: client
+          image: stephengrider/multi-client
+          ports:
+            - containerPort: 3000
